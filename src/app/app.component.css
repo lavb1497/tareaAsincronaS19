@@ -1,0 +1,14 @@
+#imgLogo{
+  width: 140px;
+}
+#container {
+  background-color: rgb(215, 87, 51);
+}
+#card{
+  background-color: black;
+  color: white;
+}
+#img {
+  background-color: grey;
+  display: flex;
+}

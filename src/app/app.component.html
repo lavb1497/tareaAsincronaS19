@@ -1,5 +1,53 @@
-<ul>
-  <li *ngFor="let pokemon of pokemons">
-    {{ pokemon.name }}
-  </li>
-</ul>
+<nav class="navbar bg-light mb-4">
+  <div class="container-fluid">
+    <img class="pt-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" alt="imgLogo" id="imgLogo">
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mb-2">
+      <label for="exampleFormControlInput1" class="form-label"><strong>Pokemón:</strong></label>
+    </div>
+    <div class="col-sm-10 mb-4">
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa aquí tu pokemón" [(ngModel)]="namePokemon">
+    </div>
+    <div class="col-sm-2 mb-4 text-center">
+      <button type="button" class="btn btn-outline-dark" (click)="ingresar()">Buscar</button>
+    </div>
+  </div>
+</div>
+<div class="container" id="container" *ngIf="pokemonBuscado">
+  <div class="row">
+    <div *ngFor="let dato of data" class="col-sm-4 mt-2 mb-4">
+      <div class="card" id="card">
+        <h5 class="text-center mt-2"># {{dato.orden}}</h5>
+        <img src="{{dato.image}}" class="card-img-top mx-auto" alt="imgPokemon" id="img">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{dato.name | uppercase}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" id="container" *ngIf="pokemonAll">
+  <div class="row">
+    <div *ngFor="let dato of data" class="col-sm-4 mt-2 mb-4">
+      <div class="card" id="card">
+        <h5 class="text-center mt-2"># {{dato.orden}}</h5>
+        <img src="{{dato.image}}" class="card-img-top mx-auto" alt="imgPokemon" id="img">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{dato.name | uppercase}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="w-3/4 mx-auto">
+  <div class="grid grid-cols-4 gap-4 tex-center">
+      <div *ngFor="let dato of data" class="bg-blue-100 rounded-lg">
+          <img src="{{dato.image}}" alt="" width="10%">
+          <p class="text-xl font-bold">{{dato.orden}}</p>
+          <p class="text-xl font-bold">{{dato.name | uppercase}}</p>
+      </div>
+  </div>
+</div> -->
