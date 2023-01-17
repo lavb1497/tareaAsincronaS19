@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokedexService } from './services/pokedex.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'actividad-19';
+
+  public pokemons: Array<any> = [];
+
+  constructor(private pokedex:PokedexService){
+
+    this.pokedex.getPokemon().subscribe((res:any) => {
+      console.log(res);
+      this.pokemons = res;
+    })
+  }
 }
